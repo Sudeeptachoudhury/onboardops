@@ -1,0 +1,364 @@
+    1  groupadd devteam
+    2  getent group devteam
+    3  tree
+    4  useradd -m -s /bin/bash devuser1
+    5  useradd -m -s /bin/bash devuser2
+    6  useradd -m -s /bin/bash devuser3
+    7  getent passwd devuser1
+    8  usermod -aG devteam devuser1
+    9  usermod -aG devteam devuser2
+   10  usermod -aG devteam devuser3
+   11  id devuser1
+   12  passwd devuser1
+   13  passwd devuser2
+   14  passwd devuser1
+   15  passwd devuser2
+   16  passwd devuser3
+   17  chage -M 60 -W 7 -d 0 devuser1
+   18  chage -M 60 -W 7 -d 0 devuser2
+   19  chage -M 60 -W 7 -d 0 devuser3
+   20  chage -l devuser1
+   21  vi /etc/sudoers.d/onboardops
+   22  chmod 440 /etc/sudoers.d/onboardops
+   23  visudo -cf /etc/sudoers..d/onboardops
+   24  visudo -c
+   25  visudo -cf /etc/sudoers.d/onboardops
+   26  id devuser1
+   27  id devuser2
+   28  id devuser3
+   29  getent group wheel
+   30  mkdir -p /shared/project
+   31  chown root:devteam /shared/project
+   32  chmod 3770 /shared/project
+   33  ls -ld /shared/project
+   34  umask 0007
+   35  for user in devuser1 devuser2 devuser3; do     echo 'umask 0007' >> /home/$user/.bashrc; done
+   36  #chown devuser1:devuser1 /home/devuser1/.bashrc
+   37  #chown devuser2:devuser2 /home/devuser2/.bashrc
+   38  #chown devuser3:devuser3 /home/devuser3/.bashrc
+   39  umask
+   40  vi provision.sh
+   41  chmod +x provision.sh
+   42  ls -l provision.sh
+   43  ./provision.sh
+   44  getent group devteam
+   45  id devuser1
+   46  id devuser2
+   47  id devuser3
+   48  ls -ld /home/devuser1
+   49  ls -ld /home/devuser2
+   50  ls -ld /home/devuser3
+   51  getent passwd devuser1
+   52  getent passwd devuser2
+   53  getent passwd devuser3
+   54  chage -l devuser1
+   55  chage -l devuser3
+   56  su - devuser1
+   57  cat /etc/redhat-release
+   58  groupadd devteam
+   59  cd ..
+   60  ls
+   61  cd 
+   62  ls
+   63  rm provision.sh
+   64  ls
+   65  cd /
+   66  whoami
+   67  ls
+   68  whoami
+   69  groupadd devteam
+   70  useradd -m -s /bin/bash devuser1
+   71  useradd -m -s /bin/bash devuser2
+   72  useradd -m -s /bin/bash devuser3
+   73  getent passwd devuser1
+   74  usermod -aG devteam devuser1
+   75  usermod -aG devteam devuser2
+   76  usermod -aG devteam devuser3
+   77  id devuser1
+   78  id devuser2
+   79  id devuser3
+   80  passwd devuser1
+   81  passwd devuser2
+   82  passwd devuser3
+   83  chage -M 60 -W 7 -d 0 devuser1
+   84  chage -M 60 -W 7 -d 0 devuser2
+   85  chage -M 60 -W 7 -d 0 devuser3
+   86  chage -l devuser1
+   87  vi /etc/sudoers.d/onboardops
+   88  chmod 440 /etc/sudoers.d/onboardops
+   89  visudo -cf /etc/sudoers.d/onboardops
+   90  visudo -c
+   91  id devuser1
+   92  id devuser2
+   93  id devuser3
+   94  getent group wheel
+   95  mkdir -p /shared/project
+   96  chown root:devteam /shared/project
+   97  chmod 3770 /shared/project
+   98  ls -ld /shared/project
+   99  umask 0007
+  100  for user in devuser1 devuser2 devuser3; do     echo 'umask 0007' >> /home/$user/.bashrc; done
+  101  chown devuser1:devuser1 /home/devuser1/.bashrc
+  102  chown devuser2:devuser2 /home/devuser2/.bashrc
+  103  chown devuser3:devuser3 /home/devuser3/.bashrc
+  104  umask
+  105  vi provision.sh
+  106  vi provision.sh
+  107  pwd
+  108  ls -ld
+  109  ls -la /root/onboardops
+  110  pwd
+  111  vim provision.sh
+  112  pwd
+  113  ls -ld /root
+  114  ls -ld /root/onboardops
+  115  touch /root/onboardops/testfile
+  116  pwd
+  117  ls -ld .
+  118  touch testfile
+  119  cd /root
+  120  pwd
+  121  ls -ld /root/onboardops
+  122  mkdir -p /root/onboardops
+  123  cd /root/onboardops
+  124  pwd
+  125  touch testfile
+  126  rm testfile
+  127  vi provision.sh
+  128  chmod +x provision.sh
+  129  ls -l provision.sh
+  130  bash -n provision.sh
+  131  ./provision.sh
+  132  getent group devteam
+  133  id devuser1
+  134  id devuser2
+  135  id devuser3
+  136  ls -ld /home/devuser1
+  137  ls -ld /home/devuser2
+  138  ls -ld /home/devuser3
+  139  getent passwd devuser1
+  140  getent passwd devuser2
+  141  getent passwd devuser3
+  142  chage -l devuser1
+  143  chage -l devuser2
+  144  chage -l devuser3
+  145  su - devuser1
+  146  ls -ld /shared/project
+  147  su - devuser1
+  148  su - devuser2
+  149  whoami
+  150  cd /root/onboardops
+  151  pwd
+  152  {     echo "============================================================";     echo "OnboardOps Verification Report";     echo "Date: $(date)";     echo "============================================================";      echo;     echo "===== GROUP =====";     getent group devteam;      echo;     echo "===== USER 1 =====";     id devuser1;     chage -l devuser1;      echo;     echo "===== USER 2 =====";     id devuser2;     chage -l devuser2;      echo;     echo "===== USER 3 =====";     id devuser3;     chage -l devuser3;      echo;     echo "===== HOME DIRECTORIES =====";     ls -ld /home/devuser1;     ls -ld /home/devuser2;     ls -ld /home/devuser3;      echo;     echo "===== SHARED DIRECTORY =====";     ls -ld /shared/project;      echo;     echo "===== SUDOERS =====";     cat /etc/sudoers.d/onboardops;      echo;     echo "===== SUDOERS VALIDATION =====";     visudo -c;      echo;     echo "===== UMASK CONFIGURATION =====";     grep -n "umask 0007" /home/devuser1/.bashrc;     grep -n "umask 0007" /home/devuser2/.bashrc;     grep -n "umask 0007" /home/devuser3/.bashrc;  } | tee verification.txt
+  153  cat verification.txt
+  154  whoami
+  155  echo "===== devuser1 sudo ====="
+  156  su - devuser1 -c 'sudo -l'
+  157  su - devuser1
+  158  su - devuser2
+  159  su - devuser3
+  160  {     echo "===== devuser1 sudo =====";     su - devuser1 -c 'sudo -l' || true;      echo;     echo "===== devuser2 sudo =====";     su - devuser2 -c 'sudo -l' || true;      echo;     echo "===== devuser3 sudo =====";     su - devuser3 -c 'sudo -l' || true; } >> verification.txt
+  161  sed -i '/===== devuser1 sudo =====/,$d' verification.txt
+  162  cat >> verification.txt <<'EOF'
+  163  ===== SUDO TEST RESULTS =====
+  164  devuser1:
+  165  - sudo access configured
+  166  - Manual test: sudo -l completed successfully
+  167  devuser2:
+  168  - sudo access denied
+  169  - Manual test: sudo -l reported user is not permitted to run sudo
+  170  devuser3:
+  171  - sudo access denied
+  172  - Manual test: sudo -l reported user is not permitted to run sudo
+  173  EOF
+  174  cat verification.txt
+  175  id devuser1
+  176  id devuser2
+  177  id devuser3
+  178  ls -ld /shared/project
+  179  chage -l devuser1
+  180  chage -l devuser2
+  181  chage -l devuser3
+  182  su - devuser1
+  183  su - devuser2
+  184  su - devuser1
+  185  touch /shared/project/test.txt
+  186  ls -l /shared/project/test.txt
+  187  umask
+  188  touch /shared/project/permission-test.txt
+  189  su - devuser1
+  190  su - devuser2
+  191  ls
+  192  cd /root/onboardops
+  193  bash -n provision.sh
+  194  cd /root/onboardops
+  195  bash -n provision.sh
+  196  cat provision.sh
+  197  cat verification.txt
+  198  getent group devteam
+  199  id devuser1
+  200  id devuser2
+  201  id devuser3
+  202  chage -l devuser1
+  203  chage -l devuser2
+  204  chage -l devuser3
+  205  ls -ld /shared/project
+  206  cat /etc/sudoers.d/onboardops
+  207  visudo -c
+  208  su - devuser2
+  209  sudo -l
+  210  exit
+  211  ls
+  212  cd onboardops
+  213  cd /root/onboardops
+  214  vi commands.txt
+  215  hiry
+  216  history
+  217  history > /root/onboardops/commands.txt
+
+============================================================
+FAILED COMMANDS / ISSUES ENCOUNTERED
+============================================================
+
+1. Group already existed
+Command:
+groupadd devteam
+
+Result:
+groupadd: group 'devteam' already exists
+
+Resolution:
+The existing devteam group was retained and verified.
+
+------------------------------------------------------------
+
+2. User already existed
+Command:
+useradd -m -s /bin/bash devuser1
+
+Result:
+useradd: user 'devuser1' already exists
+
+Resolution:
+The existing devuser1 account was retained and configured by the provisioning script.
+
+------------------------------------------------------------
+
+3. Vim could not write the script
+Command:
+vi provision.sh
+
+Result:
+E212: Can't open file for writing
+
+Resolution:
+Checked the working directory and filesystem permissions, recreated /root/onboardops, and successfully created provision.sh.
+
+------------------------------------------------------------
+
+4. Incorrect ls command
+Command:
+ls -la /root/onboardopsls
+
+Result:
+ls: cannot access '/root/onboardopsls': No such file or directory
+
+Resolution:
+Corrected the command to:
+ls -la /root/onboardops
+
+------------------------------------------------------------
+
+5. Directory did not exist
+Command:
+touch testfile
+
+Result:
+touch: cannot touch 'testfile': No such file or directory
+
+Resolution:
+Returned to /root, recreated /root/onboardops, and changed into the directory.
+
+------------------------------------------------------------
+
+6. Non-interactive sudo test failed
+Command:
+su - devuser1 -c 'sudo -l'
+
+Result:
+sudo: a terminal is required to read the password
+sudo: a password is required
+
+Resolution:
+Performed sudo -l interactively after switching to the user with:
+su - devuser1
+
+------------------------------------------------------------
+
+7. Non-interactive sudo test for devuser2
+Command:
+su - devuser2 -c 'sudo -l'
+
+Result:
+sudo: a terminal is required to read the password
+sudo: a password is required
+
+Resolution:
+Performed the test interactively using:
+su - devuser2
+sudo -l
+
+Expected result:
+devuser2 is not permitted to run sudo commands.
+
+------------------------------------------------------------
+
+8. Non-interactive sudo test for devuser3
+Command:
+su - devuser3 -c 'sudo -l'
+
+Result:
+sudo: a terminal is required to read the password
+sudo: a password is required
+
+Resolution:
+Performed the test interactively using:
+su - devuser3
+sudo -l
+
+Actual verification:
+Sorry, user devuser3 may not run sudo on Sudeepta.
+
+------------------------------------------------------------
+
+9. Existing test directory
+Command:
+mkdir /shared/project/testdir
+
+Result:
+mkdir: cannot create directory '/shared/project/testdir': File exists
+
+Resolution:
+Verified the existing directory with:
+ls -ld /shared/project/testdir
+
+Verification:
+Directory was owned by devuser1, group devteam, with SGID enabled.
+
+10. Nested user sessions
+
+Issue:
+Switched from devuser1 to devuser2 and then devuser3 without
+exiting each previous shell.
+
+Resolution:
+Used exit repeatedly and verified the current account with:
+whoami
+
+Result:
+Returned successfully to the root shell.
+
+============================================================
+END OF FAILED COMMANDS / ISSUES
+============================================================
+

@@ -1,0 +1,74 @@
+============================================================
+OnboardOps Verification Report
+Date: Sun Aug 30 14:42:27 UTC 2026
+============================================================
+
+===== GROUP =====
+devteam:x:1001:devuser1,devuser2,devuser3
+
+===== USER 1 =====
+uid=1001(devuser1) gid=1002(devuser1) groups=1002(devuser1),1001(devteam)
+Last password change					: Aug 30, 2026
+Password expires					: Oct 29, 2026
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 60
+Number of days of warning before password expires	: 7
+
+===== USER 2 =====
+uid=1002(devuser2) gid=1003(devuser2) groups=1003(devuser2),1001(devteam)
+Last password change					: Aug 30, 2026
+Password expires					: Oct 29, 2026
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 60
+Number of days of warning before password expires	: 7
+
+===== USER 3 =====
+uid=1003(devuser3) gid=1004(devuser3) groups=1004(devuser3),1001(devteam)
+Last password change					: Aug 30, 2026
+Password expires					: Oct 29, 2026
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 60
+Number of days of warning before password expires	: 7
+
+===== HOME DIRECTORIES =====
+drwxr-x--- 3 devuser1 devuser1 4096 Aug 30 14:37 /home/devuser1
+drwxr-x--- 3 devuser2 devuser2 4096 Aug 30 14:36 /home/devuser2
+drwxr-x--- 3 devuser3 devuser3 4096 Aug 30 14:34 /home/devuser3
+
+===== SHARED DIRECTORY =====
+drwxrws--T 3 root devteam 4096 Aug 30 14:40 /shared/project
+
+===== SUDOERS =====
+# OnboardOps - only devuser1 receives full sudo access
+devuser1 ALL=(ALL) ALL
+
+===== SUDOERS VALIDATION =====
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/onboardops: parsed OK
+
+===== UMASK CONFIGURATION =====
+118:umask 0007
+118:umask 0007
+118:umask 0007
+
+===== SUDO TEST RESULTS =====
+
+devuser1:
+- sudo access configured
+- Manual test: sudo -l completed successfully
+
+devuser2:
+- sudo access denied
+- Manual test: sudo -l reported user is not permitted to run sudo
+
+devuser3:
+- sudo access denied
+- Manual test: sudo -l reported user is not permitted to run sudo
+
